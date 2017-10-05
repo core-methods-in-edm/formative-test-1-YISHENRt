@@ -1,0 +1,55 @@
+---
+title: "Test1"
+author: "YI SHEN"
+date: "October 5, 2017"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+Question4
+D1 <- read.csv("~/Desktop/HMXPC13_DI_v2_5-14-14.csv",head = TRUE)
+```
+```{r}
+Question6
+sum(D1$course_id == "HarvardX/CS50x/2012")
+```
+
+```{r}
+Question7
+sum(D1$course_id=="HarvardX/CS50x",D1$final_cc_cname_DI=="Columbia",D1$start_time_DI=="2012-10-15")
+
+```
+
+```{r}
+Question8
+D2 <- subset(D1, D1$final_cc_cname_DI=="Australia",select=c(userid_DI,start_time_DI,final_cc_cname_DI))
+```
+
+```{r}
+Question9
+library(dplyr)
+library(tidyr)
+Dtemp <- data.frame(userid=D1$userid_DI, regist_date=D1$start_time_DI)
+Dtemp$bool <- rep(1,nrow(Dtemp))
+regdf <- data.frame(regist_date=unique(D3$start_time_DI))
+D3 <- spread(Dtemp, Dtemp$regist_date, Dtemp$bool)
+```
+```{r}
+Question11
+M1 <-as.matrix(D3)
+```
+
+```{r}
+Question12
+M2 <-t(M1)
+```
+
+
+
+
+
